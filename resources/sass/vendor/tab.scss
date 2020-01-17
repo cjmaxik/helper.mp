@@ -1,0 +1,55 @@
+.md-tabs {
+  -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
+  border: 0;
+  padding: .7rem;
+  margin-bottom: -20px;
+  background-color: #2bbbad;
+  z-index: 1;
+  position: relative;
+}
+
+.md-tabs .nav-item + .nav-item {
+  margin-left: 0
+}
+
+.md-tabs .nav-item.disabled {
+  pointer-events: none !important
+}
+
+.md-tabs .nav-item.disabled .nav-link {
+  color: #6c757d
+}
+
+.md-tabs .nav-link {
+  -webkit-transition: all .4s;
+  -o-transition: all .4s;
+  transition: all .4s;
+  border: 0;
+  color: #fff
+}
+
+.md-tabs .nav-item.open .nav-link,
+.md-tabs .nav-link.active {
+  background-color: rgba(0, 0, 0, .2);
+  color: #fff;
+  -webkit-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+  -webkit-border-radius: .25rem;
+  border-radius: .25rem
+}
+
+.md-tabs .nav-item.show .nav-link {
+  background-color: #2bbbad;
+  color: #fff;
+  -webkit-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+  -webkit-border-radius: .25rem;
+  border-radius: .25rem
+}
+
+.md-tabs .nav-item.show .nav-link.dropdown-toggle {
+  background-color: rgba(0, 0, 0, .2)
+}

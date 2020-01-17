@@ -1,0 +1,174 @@
+<div class="modal-dialog modal-lg cascading-modal modal-avatar">
+    <div class="modal-content">
+
+        <div class="modal-header" data-dismiss="modal">
+            <div class="img-responsive user-avatar">
+                <div class="view">
+                    <img id="playerAvatar" src="{{ data.avatar }}" style="opacity: 0;"
+                         alt="{{ data.name }}'s avatar">
+                    <div class="mask wrapper" id="playerAvatarSpinner">
+                        <div class="blue ball"></div>
+                        <div class="red ball"></div>
+                        <div class="yellow ball"></div>
+                        <div class="green ball"></div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                $('img#playerAvatar').on('load', function () {
+                    $('span#steam-flag-icon').css('background-image', 'url(/images/vendor/flag-icon-css/flags/4x3/{{ data.steam.locCountryCode }}.svg)')
+                    $('div#playerAvatarSpinner').animate({ opacity: 'hide' }, 1)
+                    $(this).animate({ opacity: 1 }, 1)
+                })
+            </script>
+        </div>
+
+        <div class="modal-body mb-0">
+            <h4 class="title text-center">
+                <span class="text-shadow"
+                      {{#if data.groupColor}}style="color:{{ data.groupColor }}; text-shadow: {{ data.groupColor }} 0.05em 0.05em 0.2em !important"{{/if}}>{{ data.name }}</span>
+                {{#if data.steam.locCountryCode}}
+                    <span class="flag-icon" id="steam-flag-icon"></span>
+                {{/if}}
+            </h4>
+
+            <div class="bans{{#if data.bans}} z-depth-1{{/if}}">
+                {{#if data.bans}}
+                    <ul class="nav md-tabs tabs-3 red">
+                        <li class="nav-item waves-effect waves-light">
+                            <a href="#playerInfo" class="nav-link active" data-toggle="tab">{{ ui.information }}</a>
+                        </li>
+                        <li class="nav-item waves-effect waves-light">
+                            <a href="#playerBans" class="nav-link" data-toggle="tab">{{ ui.latestFiveBans }}</a>
+                        </li>
+                    </ul>
+                {{/if}}
+
+                <div class="tab-content {{#if data.bans}} activated {{/if}}">
+                    <div class="tab-pane fade in show active" id="playerInfo">
+                        <div class="row">
+                            <div class="col text-center">
+                                {{#if data.banned}}
+                                    <p>
+                                        <span class="badge red banned">
+                                            {{ ui.bans.banned }} {{#if data.bannedUntil}}{{ ui.bans.until }} {{ data.bannedUntil }}{{ else }}{{ ui.bans.perm }}{{/if}}
+                                        </span>
+                                    </p>
+                                {{/if}}
+                                <p>{{ ui.rank }}: <strong>{{ data.groupName }}</strong></p>
+                                {{#if data.map}}
+                                    <p>{{{ ui.mapOnline }}}: <a href="https://ets2map.com/?follow={{ data.id }}" target="_blank" rel="noreferrer nofollow noopener">{{ data.map.ServerName }}</a></p>
+                                {{/if}}
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-sm text-center" style="margin: auto;">
+                                {{#if data.steam.timeCreated}}
+                                    {{ ui.inSteamSince }} <strong>{{ data.steam.timeCreated }}</strong>
+                                    <br/>
+                                {{/if}}
+
+                                <b>Steam ID:</b> <kbd>{{ data.steam.id }}</kbd>
+                            </div>
+
+                            <div class="col-sm text-center" style="margin: auto;">
+                                {{ ui.inTruckersmpSince }} <strong>{{ data.joinDate }}</strong>
+                                <br/>
+                                <b>TruckersMP ID:</b> <kbd>{{ data.id }}</kbd>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            {{#if data.discord}}
+                                <div class="col-sm text-center" style="margin: auto;">
+                                    <b>Discord:</b> <kbd>{{ data.discord.name }}#{{ data.discord.discriminator }}</kbd>
+                                </div>
+                            {{/if}}
+
+                            {{#if data.vtc}}
+                                <div class="col-sm text-center" style="margin: auto;">
+                                    <b>{{ ui.vtc }}:</b>
+                                    <a href="https://truckersmp.com/vtc/{{ data.vtc.id }}" target="_blank" rel="noreferrer nofollow noopener">
+                                        <kbd>{{#if data.vtc.tag}}[{{ data.vtc.tag }}] {{/if}}{{ data.vtc.name }}</kbd>
+                                    </a>
+                                </div>
+                            {{/if}}
+                        </div>
+
+                    </div>
+
+                    {{#if data.displayBans}}
+                        {{#unless data.bans}}
+                            <hr>
+                            <h4 class="text-center" style="margin-bottom: 0;">{{ ui.playerHasNoBans }}</h4>
+                        {{/unless}}
+
+                        {{#if data.bans}}
+                            <div class="tab-pane fade" id="playerBans">
+                                <div class="table-responsive text-center">
+                                    <table class="table table-sm">
+                                        <thead>
+                                        <tr>
+                                            <th>{{ ui.bans.reason }}</th>
+                                            <th>{{ ui.bans.adminName }}</th>
+                                            <th>{{ ui.bans.created }}</th>
+                                            <th>{{ ui.bans.expires }}</th>
+                                            <th>{{ ui.bans.active }}</th>
+                                        </tr>
+                                        </thead>
+
+                                        <tbody>
+                                        {{#each data.bans}}
+                                            <tr>
+                                                <td class="autolink">{{ this.reason }}</td>
+                                                <td>
+                                                    <a href="https://truckersmp.com/user/{{ this.adminID }}"
+                                                       target="_blank"
+                                                       rel="noreferrer nofollow noopener">
+                                                        {{ this.adminName }}
+                                                    </a>
+                                                </td>
+                                                <td>{{ this.createdPlain }}</td>
+                                                <td>{{ this.expiresPlain }}</td>
+                                                <td>
+                                                    {{#if this.active}}✔{{else}}❌{{/if}}
+                                                </td>
+                                            </tr>
+                                        {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        {{/if}}
+                    {{else}}
+                        <hr>
+                        <h4 class="text-center" style="margin-bottom: 0;">{{ ui.playerHidBans }}</h4>
+                    {{/if}}
+
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-body modal-buttons">
+            <div class="row text-center">
+                <div class="col">
+                    <div class="btn-group">
+                        <a href="{{ data.steam.profileUrl }}" target="_blank" rel="noreferrer nofollow noopener" class="btn btn-primary btn-steam btn-lg waves-effect waves-light">
+                            <span class="iconify icon-shadow" data-icon="mdi:steam"></span> <span class="d-none d-md-inline">Steam</span>
+                        </a>
+
+                        <a href="https://truckersmp.com/user/{{ data.id }}" target="_blank" rel="noreferrer nofollow noopener" class="btn btn-primary btn-truckersmp btn-lg waves-effect waves-light">
+                            <span class="iconify icon-shadow" data-icon="mdi:truck"></span> <span class="d-none d-md-inline">TruckersMP</span>
+                        </a>
+
+                        <a href="https://google.com/search?q={{ data.name }}" target="_blank" rel="noreferrer nofollow noopener" class="btn btn-google btn-primary btn-lg waves-effect waves-light">
+                        <span class="iconify icon-shadow" data-icon="mdi:google"></span> <span class="d-none d-md-inline">Google</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

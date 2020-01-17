@@ -1,0 +1,18 @@
+<div class="modal-dialog modal-notify modal-danger" role="document">
+    <div class="modal-content">
+        <div class="modal-body danger-color lighten-1 text-center z-depth-2">
+            <div class="text-center text-white">
+                <span class="iconify icon-64px mb-3 animated rotateIn" data-icon="mdi:alert-circle"></span>
+            </div>
+            <div class="text-center text-white">
+                <p>{{ ui.errors.errorMessage }}</p>
+            </div>
+        </div>
+
+        <div class="modal-footer justify-content-center">
+            <button type="button" class="btn btn-danger btn-lg btn-block waves-effect" data-dismiss="modal">
+                {{ ui.errors.gotIt }}
+            </button>
+        </div>
+    </div>
+</div>

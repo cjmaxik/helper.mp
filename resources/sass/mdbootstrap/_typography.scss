@@ -1,0 +1,57 @@
+// General properties
+body {
+  font-family: $roboto-font-family;
+  font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-weight-light;
+}
+
+// Blockquote
+.blockquote {
+  padding: $blockquote-padding-y $blockquote-padding-x;
+  border-left: .25rem solid #eceeef;
+  &.text-right {
+    border-left: none;
+    border-right: .25rem solid #eceeef;
+  }
+  .bq-title {
+    margin-bottom: 0;
+    font-size: $font-size-large;
+    font-weight: 400;
+  }
+  p {
+    padding: $blockquote-p-padding-y 0;
+    font-size: $blockquote-p-font-size;
+  }
+}
+
+@each $name, $color in $basic {
+  .bq-#{$name} {
+    border-left: 3px solid $color !important;
+    .bq-title {
+      color: $color !important;
+    }
+  }
+}
+
+// Responsive headings
+@each $key, $val in $grid-breakpoints {
+  @include media-breakpoint-up($key) {
+    $y: map-get($responsive-headings, $key);
+    @each $name, $value in $y {
+      .#{$name}-responsive {
+        font-size: $value;
+      }
+    }
+  }
+}
+
+@each $name, $color in $basic-mdb-colors {
+  @include text-emphasis-variant(".text-#{$name}", $color);
+}
+
+.font-small {
+  font-size: $font-size-small;
+}

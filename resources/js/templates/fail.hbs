@@ -1,0 +1,28 @@
+<div class="modal-dialog modal-notify modal-danger" role="document">
+    <div class="modal-content">
+        <div class="modal-body danger-color lighten-1 text-center z-depth-2">
+            <div class="text-center text-white">
+                <span class="iconify icon-64px mb-3 animated rotateIn" data-icon="mdi:alert-circle"></span>
+                <p>
+                    {{#if_eq data.type 'user_not_found'}}
+                        {{ ui.errors.userNotFound }}
+                    {{/if_eq}}
+                    {{#if_eq data.type 'empty_form'}}
+                        {{ ui.errors.emptyForm }}
+                    {{/if_eq}}
+                </p>
+                {{#if data.errorCode}}
+                    <p>
+                        {{errorCode ui.errors.codes data.errorCode}}: <span class="badge badge-pill pink">{{ data.needle }}</span>
+                    </p>
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="modal-footer justify-content-center">
+            <button type="button" class="btn btn-danger btn-lg btn-block waves-effect" data-dismiss="modal">
+                {{ ui.errors.gotIt }}
+            </button>
+        </div>
+    </div>
+</div>

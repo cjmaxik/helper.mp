@@ -1,0 +1,43 @@
+body.dark {
+  color: white;
+  @extend .elegant-color;
+
+  div.card-body > h3 {
+    color: initial;
+  }
+
+  div.modal:not(#wot_check):not(#player_search):not(.videoModal) {
+    .modal-dialog.cascading-modal .modal-body, .modal-dialog.cascading-modal .modal-footer, .modal-dialog.modal-notify .modal-body {
+      color: white !important;
+    }
+
+    .modal-content {
+      @extend .elegant-color;
+
+      table.table {
+        th, td {
+          border-bottom: 1px solid rgba(0, 0, 0, .1);
+        }
+      }
+    }
+
+    .modal-buttons, .modal-footer {
+      border-top: 1px solid rgba(0, 0, 0, .1);
+    }
+  }
+
+  .form-control {
+    color: white;
+  }
+
+  [type=radio] {
+    &:not(:checked) + label {
+      &:before {
+        border: 2px solid white;
+      }
+      &:after {
+        border: 2px solid white;
+      }
+    }
+  }
+}

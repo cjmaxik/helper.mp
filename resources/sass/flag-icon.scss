@@ -1,0 +1,86 @@
+//Change version in success.hbs too!
+$flag-icon-rect-path: '4x3' !default;
+
+.flag-icon-background {
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+.flag-icon {
+  @extend .flag-icon-background;
+  position: relative;
+  display: inline-block;
+  width: (4 / 3) * 1em;
+  line-height: 1em;
+  &:before {
+    content: '\00a0';
+  }
+  &.flag-icon-squared {
+    width: 1em;
+  }
+}
+
+@mixin flag-icon($language, $country: $language) {
+  .#{$language} {
+    &.flag-icon {
+      background-image: url(#{$flag-icon-css-path}/#{$flag-icon-rect-path}/#{$country}.svg);
+    }
+  }
+}
+
+.flag-icon {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+.flag-icon-fw {
+  margin-right: (18em / 14) - 1;
+}
+
+.flag-icon {
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.flag-icon-big {
+  width: (4 / 3) * 2em;
+  line-height: 2em;
+}
+
+span.badge.flag-icon-badge {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-weight: 600;
+  letter-spacing: -.05em;
+}
+
+@include flag-icon(en, us);
+@include flag-icon(ru);
+@include flag-icon(ua);
+@include flag-icon(es);
+@include flag-icon(cz);
+@include flag-icon(fr);
+@include flag-icon(de);
+@include flag-icon(ka, ge);
+@include flag-icon(tr);
+@include flag-icon(xbr, br);
+@include flag-icon(it);
+@include flag-icon(no);
+@include flag-icon(sv, se);
+@include flag-icon(pl);
+@include flag-icon(el, gr);
+@include flag-icon(tw);
+@include flag-icon(nl);
+@include flag-icon(fi);
+@include flag-icon(he, il);
+
+@import "~flag-icon-css/sass/flag-icon-list";
+//@import "~flag-icon-css/sass/flag-icon-more";

@@ -1,0 +1,14 @@
+// CDNJS
+$cdnjs: "https://cdnjs.cloudflare.com/ajax/libs" !default;
+
+// https://www.npmjs.com/package/mdbootstrap?activeTab=versions
+//$mdb-version: "4.5.3" !default;
+//$roboto-font-path: "#{$cdnjs}/mdbootstrap/#{$mdb-version}/font/roboto/" !default;
+//$image-path: "#{$cdnjs}/mdbootstrap/#{$mdb-version}/img/" !default;
+
+// https://cdnjs.com/libraries/flag-icon-css
+$flag-version: "3.3.0" !default;
+//$flag-icon-css-path: '#{$cdnjs}/flag-icon-css/#{$flag-verasion}/flags' !default;
+$flag-icon-css-path: '~flag-icon-css/flags' !default;
+
+$image-path: "../../img" !default;

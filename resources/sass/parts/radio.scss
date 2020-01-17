@@ -1,0 +1,167 @@
+/*!
+ * RADIO BUTTONS
+ */
+
+$fill-text-color: $primary-color;
+$border-color: $elegant-color;
+$black-color-border: transparentize(black, 0.46);
+
+[type="radio"] {
+  &:not(:checked), &:checked {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &:not(:checked) + label {
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    font-size: 1rem;
+    -webkit-transition: .28s ease;
+    transition: .28s ease;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  &:checked + label {
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    font-size: 1rem;
+    -webkit-transition: .28s ease;
+    transition: .28s ease;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: $fill-text-color;
+  }
+
+  &:not(:checked) {
+    + label {
+      color: inherit;
+    }
+
+    + label {
+      &:before, &:after {
+        border-radius: 50%;
+      }
+    }
+  }
+
+  + label {
+    &:before, &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      margin: 4px;
+      width: 16px;
+      height: 16px;
+      z-index: 0;
+      -webkit-transition: .28s ease;
+      transition: .28s ease;
+    }
+  }
+
+  &:checked + label {
+    &:before, &:after {
+      border-radius: 50%;
+    }
+  }
+
+  &.with-gap:checked + label {
+    &:before, &:after {
+      border-radius: 50%;
+    }
+  }
+
+  &:not(:checked) + label {
+    &:before {
+      border: 2px solid $border-color;
+    }
+    &:after {
+      border: 2px solid $border-color;
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    }
+  }
+
+  &:checked + label {
+    &:before {
+      border: 2px solid transparent;
+    }
+    &:after {
+      border: 2px solid $fill-text-color;
+    }
+  }
+
+  &.with-gap:checked + label {
+    &:before, &:after {
+      border: 2px solid $fill-text-color;
+    }
+  }
+
+  &:checked + label:after, &.with-gap:checked + label:after {
+    background-color: $fill-text-color;
+    color: $fill-text-color;
+  }
+
+  &:checked + label:after {
+    transform: scale(1.02);
+  }
+
+  &.with-gap:checked + label:after {
+    transform: scale(0.5);
+  }
+
+  &.tabbed:focus + label:before {
+    -webkit-box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  //&.with-gap:disabled:checked + label {
+  //  &:before {
+  //    border: 2px solid $black-color-border;
+  //  }
+  //
+  //  &:after {
+  //    border: none;
+  //    background-color: $black-color-border;
+  //  }
+  //}
+  //
+  //&:disabled {
+  //  &:not(:checked) + label:before, &:checked + label:before {
+  //    background-color: transparent;
+  //    border-color: $black-color-border;
+  //  }
+  //
+  //  + label {
+  //    color: $black-color-border;
+  //  }
+  //
+  //  &:not(:checked) + label:before {
+  //    border-color: $black-color-border;
+  //  }
+  //
+  //  &:checked + label:after {
+  //    background-color: $black-color-border;
+  //    //border-color: map-get($grey, lighten-1);
+  //  }
+  //}
+
+}
+
+/*!
+ * END OF RADIO BUTTONS
+ */

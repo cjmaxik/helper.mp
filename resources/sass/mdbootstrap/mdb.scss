@@ -1,0 +1,52 @@
+@charset "UTF-8";
+/*!
+ * Material Design for Bootstrap 4
+ * Version: MDB FREE 4.8.5
+ */
+
+// Bootstrap
+@import "~mdbootstrap/scss/core/bootstrap/functions";
+@import "~mdbootstrap/scss/core/bootstrap/variables";
+@import "~mdbootstrap/scss/core/bootstrap/rfs";
+
+// CORE
+@import "~mdbootstrap/scss/core/mixins";
+// Your custom variables
+@import "~mdbootstrap/scss/custom-variables";
+@import "~mdbootstrap/scss/core/colors";
+@import "~mdbootstrap/scss/core/variables";
+@import "~mdbootstrap/scss/core/global";
+@import "~mdbootstrap/scss/core/helpers";
+@import "typography"; // OWN!!!
+@import "~mdbootstrap/scss/core/masks";
+@import "~mdbootstrap/scss/core/waves";
+
+// FREE
+@import "~mdbootstrap/scss/free/animations-basic";
+@import "~mdbootstrap/scss/free/modules/animations-extended/module";
+@import "~mdbootstrap/scss/free/buttons";
+@import "~mdbootstrap/scss/free/cards";
+@import "~mdbootstrap/scss/free/dropdowns";
+@import "~mdbootstrap/scss/free/input-group";
+@import "~mdbootstrap/scss/free/navbars";
+@import "~mdbootstrap/scss/free/pagination";
+@import "~mdbootstrap/scss/free/badges";
+@import "~mdbootstrap/scss/free/modals";
+@import "~mdbootstrap/scss/free/carousels";
+@import "~mdbootstrap/scss/free/forms";
+@import "~mdbootstrap/scss/free/msc";
+@import "~mdbootstrap/scss/free/footers";
+@import "~mdbootstrap/scss/free/list-group";
+@import "~mdbootstrap/scss/free/tables";
+@import "~mdbootstrap/scss/free/depreciated";
+@import "~mdbootstrap/scss/free/steppers";
+@import "~mdbootstrap/scss/free/loader";
+@import "~mdbootstrap/scss/free/treeview";
+
+// Free addons
+@import "~mdbootstrap/scss/addons/datatables";
+@import "~mdbootstrap/scss/addons/datatables-select";
+@import "~mdbootstrap/scss/addons/directives";
+@import "~mdbootstrap/scss/addons/hierarchical-display";
+//@import "~mdbootstrap/scss/addons/flags";
+@import "~mdbootstrap/scss/addons/rating";
